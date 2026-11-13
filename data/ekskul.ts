@@ -98,3 +98,29 @@ export const pendaftar: Pendaftar[] = [
   { nomor: 5, ekskulId: 4, nama: "Eka", kelas: "XI A" },
   { nomor: 6, ekskulId: 5, nama: "Fajar", kelas: "XII B" },
 ];
+
+export function tambahPendaftar({
+  ekskulId,
+  nama,
+  kelas,
+}: {
+  ekskulId: number;
+  nama: string;
+  kelas: string;
+}) {
+  const nomorTerakhir = pendaftar.reduce(
+    (nomorTertinggi, item) => Math.max(nomorTertinggi, item.nomor),
+    0,
+  );
+
+  const baru: Pendaftar = {
+    nomor: nomorTerakhir + 1,
+    ekskulId,
+    nama,
+    kelas,
+  };
+
+  pendaftar.push(baru);
+
+  return baru;
+}

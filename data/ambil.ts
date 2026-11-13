@@ -1,4 +1,3 @@
-
 import { ekskul, pendaftar } from "@/data/ekskul";
 
 // Pura-pura mengambil data dari database yang agak lambat.
@@ -18,7 +17,8 @@ export async function ambilEkskul(id: number) {
 
 // Daftar anggota satu ekskul, urut nomor pendaftaran.
 export async function ambilAnggota(ekskulId: number) {
-  await jeda(1000);
+  await jeda(1500);
+
   return pendaftar
     .filter((p) => p.ekskulId === ekskulId)
     .sort((a, b) => a.nomor - b.nomor);
